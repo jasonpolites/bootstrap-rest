@@ -10,14 +10,30 @@ Installing EC2/Tomcat
 Create a new EC2 instance with the default Amazon Linux, then::
 
 
-Install Tomcat
-~~~~~~~~~~~~~~
+Install Tomcat & Maven
+~~~~~~~~~~~~~~~~~~~~~~
 
 From the command line::
 
     sudo yum update
     sudo yum install tomcat7 tomcat7-admin-webapps
+    sudo yum install maven
     sudo chkconfig tomcat7 on
+
+Install the app
+~~~~~~~~~~~~~~~
+
+<INSTALL PATH> is used as a placeholder for where ever you choose to install:
+
+    mkdir <INSTALL PATH>
+    cd <INSTALL PATH>
+    git clone https://github.com/socialize/bootstrap-rest.git
+    cd bootstrap-rest
+    mvn package
+
+This will produce a WAR file in::
+
+    build/bootstrap-rest/lib
 
 Setup Tomcat
 ~~~~~~~~~~~~
@@ -28,4 +44,4 @@ Edit the tomcat-users config::
 
 Then copy the contents of::
 
-    deploy/tomcat-users.xml
+    <INSTALL PATH>/bootstrap-rest/deploy/etc/tomcat-users.xml
