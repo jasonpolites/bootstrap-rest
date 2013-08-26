@@ -13,6 +13,8 @@ Create a new EC2 instance with the default Amazon Linux, then::
 Install Tomcat
 ~~~~~~~~~~~~~~
 
+From the command line::
+
     sudo yum update
     sudo yum install tomcat7 tomcat7-admin-webapps
     sudo chkconfig tomcat7 on
