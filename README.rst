@@ -9,6 +9,7 @@ Installing EC2/Tomcat
 
 Create a new EC2 instance with the default Amazon Linux, then::
 
+
 Install Tomcat
 ~~~~~~~~~~~~~~
 
@@ -16,3 +17,13 @@ Install Tomcat
     sudo yum install tomcat7 tomcat7-admin-webapps
     sudo chkconfig tomcat7 on
 
+Setup Tomcat
+~~~~~~~~~~~~
+
+Edit the tomcat-users config::
+
+    sudo vim /etc/tomcat7/tomcat-users.xml
+
+Then copy the contents of::
+
+    deploy/tomcat-users.xml
