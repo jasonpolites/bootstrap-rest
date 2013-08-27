@@ -4,40 +4,34 @@
     <property file="build.properties"/>
 
     <target name="clean">
-        <delete file="${dist.dir}/${app.name}-${app.version}.tar" failonerror="false"/>
-        <delete file="${dist.dir}${app.name}-${app.version}.tar.gz" failonerror="false"/>
-        <delete dir="${tmp.dir}/${app.name}" failonerror="false"/>
+        <delete file="${app.name}-${app.version}.war" failonerror="false"/>
+        <delete file="${app.name}-${app.version}.tar" failonerror="false"/>
+        <delete file="${app.name}-${app.version}.tar.gz" failonerror="false"/>
+        <delete dir="${dist.dir}" failonerror="false"/>
     </target>
 
     <target name="package" depends="clean">
 
-        <mkdir dir="${tmp.dir}/${app.name}"/>
-
-        <!-- Create the ST directory structure -->
-        <mkdir dir="${tmp.dir}/${app.name}"/>
-
-        <mkdir dir="${tmp.dir}/${app.name}/conf"/>
-        <mkdir dir="${tmp.dir}/${app.name}/logs"/>
-        <mkdir dir="${tmp.dir}/${app.name}/tmp"/>
-        <mkdir dir="${tmp.dir}/${app.name}/lib"/>
-        <mkdir dir="${tmp.dir}/${app.name}/etc"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}/conf"/>
+        <mkdir dir="${dist.dir}/etc"/>
 
         <!-- Copy the war file from the target -->
         <copy file="${dist.dir}/${app.name}-${app.version}.war" todir="${tmp.dir}/${app.name}/lib"/>
 
         <!-- Copy the context file to conf -->
-        <copy todir="${tmp.dir}/${app.name}/conf">
+        <copy todir="${tmp.dir}/conf">
             <fileset dir="deploy/conf" includes="**/**"/>
         </copy>
 
-        <copy todir="${tmp.dir}/${app.name}/etc">
+        <copy todir="${tmp.dir}/etc">
             <fileset dir="deploy/etc" includes="**/**"/>
         </copy>
 
         <!-- Now tar/gz the folder -->
         <tar
             destfile="${dist.dir}/${app.name}-${app.version}.tar"
-            basedir="${tmp.dir}/${app.name}"/>
+            basedir="${tmp.dir}"/>
 
         <gzip destfile="${dist.dir}/${app.name}-${app.version}.tar.gz" src="${dist.dir}/${app.name}-${app.version}.tar"/>
 

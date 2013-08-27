@@ -23,17 +23,16 @@ From the command line::
 Install the app
 ~~~~~~~~~~~~~~~
 
-<INSTALL PATH> is used as a placeholder for where ever you choose to install::
+Download and build the app from this repo::
 
-    mkdir <INSTALL PATH>
-    cd <INSTALL PATH>
+    cd ~/
     git clone https://github.com/socialize/bootstrap-rest.git
     cd bootstrap-rest
     mvn package
 
 This will produce a WAR file in::
 
-    <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib
+    ~/bootstrap-rest/target
 
 Setup Tomcat
 ~~~~~~~~~~~~
@@ -44,14 +43,13 @@ Edit the tomcat-users config::
 
 Then copy the contents of::
 
-    <INSTALL PATH>/bootstrap-rest/deploy/etc/tomcat-users.xml
+    ~/bootstrap-rest/deploy/etc/tomcat-users.xml
 
 Then copy the WAR file::
 
     mkdir ~/opt
     mkdir ~/opt/bootstrap-rest
-    cp <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib/bootstrap-rest-1.0-SNAPSHOT.war ~/opt/bootstrap-rest
-
+    cp ~/bootstrap-rest/target/bootstrap-rest-1.0-SNAPSHOT.war ~/opt/bootstrap-rest
 
 Create the symlink to the home folder (tomcat deploy can't follow ~/)::
 

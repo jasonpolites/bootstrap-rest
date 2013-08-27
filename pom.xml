@@ -132,29 +132,6 @@
                     </archive>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <configuration>
-                            <target>
-                                <!-- Run the project's ANT build -->
-                                <ant antfile="${basedir}/build.xml">
-                                    <property name="app.name" value="${project.name}"/>
-                                    <property name="app.version" value="${project.version}"/>
-                                    <target name="package"/>
-                                </ant>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
