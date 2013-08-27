@@ -58,27 +58,27 @@
 
     <div class="jumbotron">
         <h1>REST API Template</h1>
-        <p class="lead">A simple template REST API application used to bootstrap the creation of RESTful services in Java</p>
+        <p class="lead">A template app to bootstrap the creation of RESTful services in Java</p>
 
         <form class="form-inline" onsubmit="return runDemo();">
             <div class="control-group" id="dvControlGroup">
-                <input id="txtCookieId" type="text" class="input" placeholder="Enter a value" required>
-                <input type="submit" class="btn btn-success" id="btnRunDemo" value="Run Demo"/>
+                <input id="txtCookieId" type="text" class="input" placeholder="Enter a value" value="Hello World" required>
+                <input type="submit" class="btn btn-success" id="btnRunDemo" value="Add Sugar!"/>
             </div>
         </form>
     </div>
 
-    <pre id="dvDemoResults" style="display: none"></pre>
+    <pre id="dvDemoResults" style="display: none; padding:4px; margin:2px;"></pre>
 
     <hr>
 
     <div class="row-fluid marketing">
-        <div class="span6">
+        <div class="span8">
             <a href="http://github.com/socialize/bootstrap-rest" target="_blank"><h4>Github Repository</h4></a>
             <p>Download the source code for the Bootstrap REST API</p>
         </div>
 
-        <div class="span6">
+        <div class="span4">
             <a href="https://www.sharethis.com" target="_blank"><h4>Other</h4></a>
             <p>Add more links as required</p>
         </div>
