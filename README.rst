@@ -3,7 +3,6 @@ ShareThis Bootstrap REST API
 
 This is a simple REST API that provides a baseline bootstrap project for creating RESTful services in Java
 
-
 Installing EC2/Tomcat
 =====================
 
@@ -53,7 +52,7 @@ Then copy the WAR file::
 
 Create the symlink to the home folder (tomcat deploy can't follow ~/)::
 
-    sudo ln -s ~/opt/bootstrap-rest/ /opt/
+    sudo ln -s ~/opt/bootstrap-rest/ /opt
 
 Create a group for the tomcat user::
 
