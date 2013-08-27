@@ -23,7 +23,7 @@ From the command line::
 Install the app
 ~~~~~~~~~~~~~~~
 
-<INSTALL PATH> is used as a placeholder for where ever you choose to install:
+<INSTALL PATH> is used as a placeholder for where ever you choose to install::
 
     mkdir <INSTALL PATH>
     cd <INSTALL PATH>
@@ -33,7 +33,7 @@ Install the app
 
 This will produce a WAR file in::
 
-    build/bootstrap-rest/lib
+    <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib
 
 Setup Tomcat
 ~~~~~~~~~~~~
@@ -45,3 +45,27 @@ Edit the tomcat-users config::
 Then copy the contents of::
 
     <INSTALL PATH>/bootstrap-rest/deploy/etc/tomcat-users.xml
+
+Then copy the WAR file::
+
+    mkdir ~/opt
+    mkdir ~/opt/boostrap-rest
+    cp <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib/boostrap-rest-1.0-SNAPSHOT.war ~/opt/boostrap-rest
+
+
+Create the symlink to the home folder (tomcat deploy can't follow ~/)::
+
+    sudo ln -s ~/opt/sharethis/ /opt/
+
+Create a group for the tomcat user::
+
+    sudo groupadd boostrap-rest
+
+Add the current user and the tomcat user to the same group::
+
+    sudo usermod -a -G boostrap-rest tomcat
+    sudo usermod -a -G boostrap-rest ec2-user
+
+Start the server::
+
+    sudo service tomcat7 start
