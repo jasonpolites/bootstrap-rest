@@ -49,8 +49,8 @@ Then copy the contents of::
 Then copy the WAR file::
 
     mkdir ~/opt
-    mkdir ~/opt/boostrap-rest
-    cp <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib/boostrap-rest-1.0-SNAPSHOT.war ~/opt/boostrap-rest
+    mkdir ~/opt/bootstrap-rest
+    cp <INSTALL PATH>/bootstrap-rest/build/bootstrap-rest/lib/bootstrap-rest-1.0-SNAPSHOT.war ~/opt/bootstrap-rest
 
 
 Create the symlink to the home folder (tomcat deploy can't follow ~/)::
@@ -59,12 +59,12 @@ Create the symlink to the home folder (tomcat deploy can't follow ~/)::
 
 Create a group for the tomcat user::
 
-    sudo groupadd boostrap-rest
+    sudo groupadd bootstrap-rest
 
 Add the current user and the tomcat user to the same group::
 
-    sudo usermod -a -G boostrap-rest tomcat
-    sudo usermod -a -G boostrap-rest ec2-user
+    sudo usermod -a -G bootstrap-rest tomcat
+    sudo usermod -a -G bootstrap-rest ec2-user
 
 Start the server::
 
